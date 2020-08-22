@@ -29,7 +29,9 @@ npm run build
 
 ## Features
 
-### Integration with data file and custom template data: just add a data export to your jsx file
+### Integration with data file and custom template data
+
+just add a `data export` to your jsx file
 
 ```js
 import React from "react";
@@ -86,7 +88,9 @@ export default function User({ site, user }) {
 }
 ```
 
-### Integration with styled components: styles are extracted and inserted into the `<head>` tag
+### Integration with styled components
+
+styles are extracted and inserted into the `<head>` tag
 
 ```js
 import React from "react";
@@ -136,4 +140,4 @@ React is not included in the build, so you can use any js approach on the client
 
 _⚠️ very much a work in progress_
 
-Requires experimental features in Eleventy, specifically: [Custom File Extension Handlers feature from Eleventy](https://github.com/11ty/eleventy/issues/117). Opt in to experimental features on Eleventy by running `ELEVENTY_EXPERIMENTAL=true npx @11ty/eleventy`.
+Requires experimental features in Eleventy, specifically: [Custom File Extension Handlers feature from Eleventy](https://github.com/11ty/eleventy/issues/117)
