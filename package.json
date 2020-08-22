@@ -6,6 +6,7 @@
     "build": "ELEVENTY_EXPERIMENTAL=true eleventy",
     "storybook": "start-storybook -s ./_site -p 6006",
     "build-storybook": "build-storybook -o _site/storybook",
+    "deploy": "npm run build && npm run build-storybook",
     "release": "release-it"
   },
   "author": "",
