@@ -1,4 +1,5 @@
 const webpackModule = require("../webpackModule");
+const maxAssetSize = 1024 * 1024;
 
 module.exports = {
   stories: [
@@ -14,6 +15,18 @@ module.exports = {
       return data;
     });
     config.module.rules.push(webpackModule.rules[1]);
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        chunks: "all",
+        minSize: 30 * 1024,
+        maxSize: maxAssetSize,
+      },
+    };
+    config.performance = {
+      ...config.performance,
+      maxAssetSize: maxAssetSize,
+    };
     return config;
   },
 };

@@ -2,6 +2,10 @@
 
 > Use [React](https://reactjs.org/) components in [Eleventy](https://www.11ty.dev/).
 
+## Demo
+
+[https://eleventy-react.netlify.app/](https://eleventy-react.netlify.app/)
+
 ## Why
 
 Eleventy is a great static site generator, but I don’t like template engines.
@@ -148,6 +152,10 @@ import and use inline svgs in your react components
 ## Notes
 
 React is not included in the build, so you can use any js approach on the client
+
+## TODO
+
+reduce storybook bundle site for production build
 
 ## Warnings
 
