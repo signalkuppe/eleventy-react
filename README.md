@@ -9,19 +9,32 @@ They introduce a lot of custom syntax, and it’s almost impossibile to convert 
 
 ## Installation
 
-**NPM**
+### 1. Clone or download the repository
 
 ```shell
-npm install eleventy-react --save
+git clone git@github.com:signalkuppe/eleventy-react.git eleventy-react
 ```
 
-Run development mode
+### 2. Go to the working directory
+
+```shell
+cd eleventy-react
+```
+
+### 3. Install the project dependencies
+
+```shell
+npm install
+
+```
+
+### 3. Run development mode
 
 ```shell
 npm run dev
 ```
 
-Build
+Build you site for deploy
 
 ```shell
 npm run build
