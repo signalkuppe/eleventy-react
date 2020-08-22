@@ -35,5 +35,5 @@
     "webpack": "^4.44.1"
   },
   "dependencies": {},
-  "version": "0.0.5"
+  "version": "0.0.6"
 }
