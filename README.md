@@ -29,7 +29,7 @@ npm run build
 
 ## Features
 
-- Integration with data file and custom template data: just add a data export to your jsx file
+### Integration with data file and custom template data: just add a data export to your jsx file
 
 ```js
 import React from "react";
@@ -54,7 +54,7 @@ export default function Index({ site, name }) {
 }
 ```
 
-- Support for pagination: you can generate pages from data
+### Support for pagination: you can generate pages from data
 
 ```js
 import React from "react";
@@ -86,7 +86,7 @@ export default function User({ site, user }) {
 }
 ```
 
-- Integration with styled components: styles are extracted and inserted into the `<head>` tag
+### Integration with styled components: styles are extracted and inserted into the `<head>` tag
 
 ```js
 import React from "react";
@@ -108,7 +108,7 @@ export default function Text({ children, ...props }) {
 }
 ```
 
-- Integration with [storybook](https://storybook.js.org/)
+### Integration with [storybook](https://storybook.js.org/)
 
 Develop your UI in isolation adding stories for your components and run storybook with
 
