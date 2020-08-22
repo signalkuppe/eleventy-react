@@ -1,0 +1,37 @@
+{
+  "name": "eleventy-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ELEVENTY_EXPERIMENTAL=true eleventy --serve",
+    "build": "ELEVENTY_EXPERIMENTAL=true eleventy",
+    "storybook": "start-storybook -s ./_site -p 6006",
+    "build-storybook": "build-storybook -o _site/storybook"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-react": "^7.10.4",
+    "@storybook/addon-actions": "^6.0.16",
+    "@storybook/addon-essentials": "^6.0.16",
+    "@storybook/addon-links": "^6.0.16",
+    "@storybook/react": "^6.0.16",
+    "@svgr/webpack": "^5.4.0",
+    "babel-loader": "^8.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "core-js": "^3.6.5",
+    "fast-glob": "^3.2.4",
+    "install": "^0.13.0",
+    "node-fetch": "^2.6.0",
+    "npm": "^6.14.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "styled-components": "^5.1.1",
+    "webpack": "^4.44.1"
+  },
+  "dependencies": {}
+}

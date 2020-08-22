@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import List from "./";
+import Text from "../Text";
+import { items } from "./data";
+
+<Meta title="UI/List" component={List} />
+
+# List
+
+Ordered and unordered lists
+
+<Canvas>
+  <Story name="default">
+    <List>
+      {items.map((item, i) => (
+        <Fragment key={i}>{item}</Fragment>
+      ))}
+    </List>
+  </Story>
+  <Story name="ordered">
+    <List type="ol">
+      {items.map((item, i) => (
+        <Fragment key={i}>{item}</Fragment>
+      ))}
+    </List>
+  </Story>
+  <Story name="customContent">
+    <List>
+      {items.map((item, i) => (
+        <Text bold>{item}</Text>
+      ))}
+    </List>
+  </Story>
+</Canvas>

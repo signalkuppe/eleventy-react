@@ -1,0 +1,20 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Paragraph from "./";
+import Text from "../Text";
+
+<Meta title="UI/Paragraph" component={Paragraph} />
+
+# Paragraph
+
+Block level text
+
+<Canvas>
+  <Story name="default">
+    <Paragraph>
+      <Text>this is a text</Text>
+    </Paragraph>
+    <Paragraph>
+      <Text>this is a text</Text>
+    </Paragraph>
+  </Story>
+</Canvas>

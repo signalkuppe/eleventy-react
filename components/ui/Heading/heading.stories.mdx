@@ -1,0 +1,21 @@
+<!--
+https://storybook.js.org/docs/react/writing-docs/mdx
+-->
+
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Heading from "./";
+
+<Meta title="UI/Heading" component={Heading} />
+
+# Heading
+
+A fancy heading component
+
+<Canvas>
+  <Story name="level1">
+    <Heading>Level 1 heading</Heading>
+  </Story>
+  <Story name="level2">
+    <Heading level={2}>Level 2 heading</Heading>
+  </Story>
+</Canvas>
