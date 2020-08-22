@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../../primitives/nav";
+import Nav from "../../primitives/Nav";
 import List from "../../ui/List";
 import Link from "../../ui/Link";
 
