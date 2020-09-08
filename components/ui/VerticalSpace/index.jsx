@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Div from "../../primitives/div";
+import Div from "../../primitives/Div";
 
 const StyledVerticalSpace = styled(Div)`
   margin-top: ${(props) => {
