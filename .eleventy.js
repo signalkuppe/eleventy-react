@@ -1,21 +1,23 @@
-const { getBundleFromInputPath, getBundleFileName } = require("./utils");
-const writeBundles = require("./writeBundles");
-const renderBundle = require("./renderBundle");
-const cacheDir = ".cache";
-const inputDir = "src";
+const config = require("./react/config");
+const { getBundleFromInputPath } = require("./react/utils");
+const { pages } = require("./react/findSources");
+const build = require("./react/build");
+const render = require("./react/render");
+const markdownEngine = require("./react/markdownEngine");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./components"); // we avoid to build components, but we wanna watch them for hot reloading
+  eleventyConfig.addWatchTarget("./theme");
   eleventyConfig.addTemplateFormats("jsx");
-  eleventyConfig.addPassthroughCopy(`${inputDir}/js`);
-  eleventyConfig.addPassthroughCopy(`${inputDir}/img`);
+  eleventyConfig.addPassthroughCopy(`${config.inputDir}/js`);
+  eleventyConfig.addPassthroughCopy(`${config.inputDir}/img`);
   eleventyConfig.addExtension("jsx", {
     read: false,
     data: true,
     getData: true,
     getInstanceFromInputPath: async (inputPath) => {
       try {
-        const bundle = getBundleFromInputPath(inputPath, cacheDir);
+        const bundle = getBundleFromInputPath(inputPath);
         return require(bundle);
       } catch (err) {
         throw new Error(err);
@@ -23,15 +25,16 @@ module.exports = function (eleventyConfig) {
     },
     init: async () => {
       try {
-        await writeBundles(inputDir, cacheDir);
+        const PAGES = await pages();
+        await build(PAGES);
       } catch (err) {
         throw new Error(err);
       }
     },
-    compile: (permalink, inputPath, c) => {
+    compile: (permalink, inputPath) => {
       return async (data) => {
         try {
-          return renderBundle(permalink, inputPath, cacheDir, data);
+          return render(permalink, inputPath, data);
         } catch (err) {
           throw new Error(err);
         }
@@ -39,9 +42,11 @@ module.exports = function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.setLibrary("md", markdownEngine);
+
   return {
     dir: {
-      input: inputDir, // we watch only this jsx files, not components
+      input: config.inputDir, // we watch only this jsx files, not components
     },
   };
 };

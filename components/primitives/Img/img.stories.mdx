@@ -1,0 +1,17 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Img from "./";
+
+<Meta title="Primitives/Img" component={Image} />
+
+# Img
+
+<Canvas>
+  <Story name="Default">
+    <Img src="/img/react.svg" alt="My image" width="300px" />
+  </Story>
+  <Story name="Responsive">
+    <div style={{ width: "50vw" }}>
+      <Img src="/img/react.svg" alt="My image" responsive />
+    </div>
+  </Story>
+</Canvas>

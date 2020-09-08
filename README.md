@@ -145,17 +145,25 @@ npm run build-storybook
 
 stories are written in [.mdx](https://storybook.js.org/docs/react/writing-docs/mdx) format
 
-- Inline svg parser included
+### Some basic scaffolding included
+
+basic ui/primitives/features components included to give an idea of the approach
+
+### Inline svg parser included
 
 import and use inline svgs in your react components
 
 ## Notes
 
 React is not included in the build, so you can use any js approach on the client
+I think that adding hydration would go against Eleventy’s philosophy
 
 ## TODO
 
-reduce storybook bundle site for production build
+- reduce storybook bundle site for production build
+- test other eleventy’s features (markdown content with layout)
+- use React components in \_data files
+- use React components for primitives in markdown parser
 
 ## Warnings
 

@@ -2,14 +2,11 @@
  * Test for an external API
  */
 
-const fetch = require("node-fetch");
+const users = require("../../example-data/users");
 
 module.exports = () => {
-  return new Promise(async (resolve, reject) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
-        resolve(response.json());
-      })
-      .catch((err) => reject(err));
+  return new Promise((resolve, reject) => {
+    // simulate api with our data
+    setTimeout(() => resolve(users), 100);
   });
 };

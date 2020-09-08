@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Text from "../../primitives/Text";
+import Span from "../../primitives/Span";
 
-const StyledIcon = styled(Text)`
+const StyledIcon = styled(Span)`
   margin-right: ${(props) => (props.left ? "0.5em" : "0px")};
   margin-left: ${(props) => (props.right ? "0.5em" : "0px")};
   svg {
@@ -10,6 +10,7 @@ const StyledIcon = styled(Text)`
     font-size: inherit;
     height: 1em;
     overflow: visible;
+    vertical-align: -0.125em;
   }
 `;
 

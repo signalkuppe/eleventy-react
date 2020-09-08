@@ -1,18 +1,29 @@
 import React from "react";
-import { slug } from "./utils/user";
 import DefaultLayout from "../components/layout/Default";
 import Head from "../components/layout/Head";
-import Heading from "../components/ui/Heading";
-import List from "../components/ui/List";
-import Link from "../components/ui/Link";
-import Icon from "../components/ui/Icon";
-import UserIcon from "./icons/user.svg";
+import Pager from "../components/ui/Pager";
+import VerticalSpace from "../components/ui/VerticalSpace";
+import UserList from "../components/features/users/ui/UserList";
 
 /**
  * custom data for this template (Like front matter)
  */
 export const data = {
   pageTitle: "Users",
+  description: "A list of users",
+  pagination: {
+    data: "users",
+    size: 6,
+  },
+  permalink: function (data) {
+    const pageNumber = data.pagination.pageNumber;
+    const baseUrl = "users";
+    if (pageNumber > 0) {
+      return `${baseUrl}/page-${pageNumber}/index.html`;
+    } else {
+      return `${baseUrl}/index.html`;
+    }
+  },
 };
 
 /**
@@ -20,21 +31,16 @@ export const data = {
  * users are fetched from a public API to test aysnc data in templates
  */
 
-export default function Users({ site, users, pageTitle }) {
-  const { title, slogan } = site;
+export default function Users({ site, pageTitle, description, pagination }) {
+  const { title } = site;
   return (
     <DefaultLayout
-      head={<Head title={pageTitle} slogan={slogan} description={slogan} />}
+      head={<Head title={pageTitle} slogan={title} description={description} />}
+      title={pageTitle}
     >
-      <Heading>{pageTitle}</Heading>
-      <List>
-        {users.map((user, i) => (
-          <Link key={i} href={slug(user)}>
-            <Icon left icon={UserIcon} />
-            {user.name}
-          </Link>
-        ))}
-      </List>
+      <UserList users={pagination.items} />
+      <VerticalSpace size={4} />
+      <Pager pagination={pagination} />
     </DefaultLayout>
   );
 }

@@ -1,0 +1,18 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Avatar from "./";
+import generateAvatar from "../../../example-data/avatar";
+
+<Meta title="UI/Avatar" component={Avatar} />
+
+# Avatar
+
+<Canvas>
+  <Story name="Default">
+    <Avatar image={avatar(1)} />
+  </Story>
+  <Story name="Sizes">
+    <Avatar image={avatar(1)} size={4} />
+    <Avatar image={avatar(1)} />
+    <Avatar image={avatar(1)} size={8} />
+  </Story>
+</Canvas>

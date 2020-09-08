@@ -1,4 +1,4 @@
-const webpackModule = require("../webpackModule");
+const { webpack } = require("../react/config");
 const maxAssetSize = 1024 * 1024;
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
         data.test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/;
       return data;
     });
-    config.module.rules.push(webpackModule.rules[1]);
+    config.module.rules.push(webpack.module.rules[1]);
     config.optimization = {
       ...config.optimization,
       splitChunks: {
