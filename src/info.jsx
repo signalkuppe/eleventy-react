@@ -34,9 +34,6 @@ export default function Index({ site, name, pageTitle, description }) {
         <A href="/users">This page grabs data from an api</A>
       </P>
       <P center>
-        <A href="/posts">This page lists blog posts written in markdown</A>
-      </P>
-      <P center>
         <A href="/storybook">Here you can look at storybook</A>
       </P>
       <P center>
