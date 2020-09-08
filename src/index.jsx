@@ -43,7 +43,6 @@ export default function Index({ site, name }) {
     <DefaultLayout
       head={<Head title={title} slogan={slogan} description={slogan} />}
       title={title}
-      scripts={<Scripts scripts={["/js/index.js"]}></Scripts>}
     >
       <P center>
         Use <A href="https://reactjs.org/">React</A>,{" "}

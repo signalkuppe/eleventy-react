@@ -22,7 +22,7 @@ export default function Index({ site, name, pageTitle, description }) {
   return (
     <DefaultLayout
       head={<Head title={pageTitle} slogan={title} description={description} />}
-      scripts={<Scripts scripts={["/js/index.js"]}></Scripts>}
+      scripts={<Scripts scripts={["/js/info.js"]}></Scripts>}
       title={pageTitle}
     >
       <P center>
