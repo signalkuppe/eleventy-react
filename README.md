@@ -52,6 +52,10 @@ just add a `data export` to your jsx file
 
 ```js
 import React from "react";
+import DefaultLayout from "../components/layout/Default";
+import P from "../components/primitives/P";
+import Span from "../components/primitives/Span";
+import H1 from "../components/primitives/H1";
 
 // custom template data
 export const data = {
@@ -64,10 +68,10 @@ export default function Index({ site, name }) {
 
   return (
     <DefaultLayout>
-      <Heading>{title}</Heading>
-      <Paragraph>
-        This name is from custom template data: <Text bold>{name}</Text>
-      </Paragraph>
+      <H1>{title}</H1>
+      <P>
+        This name is from custom template data: <Span bold>{name}</Span>
+      </P>
     </DefaultLayout>
   );
 }
@@ -79,7 +83,7 @@ export default function Index({ site, name }) {
 import React from "react";
 import { slug } from "./utils/user";
 import DefaultLayout from "../components/layout/Default";
-import Heading from "../components/ui/Heading";
+import H1 from "../components/primitives/H1";
 
 /**
  * A template that renders a page for each user in the users collection
@@ -99,7 +103,57 @@ export const data = {
 export default function User({ site, user }) {
   return (
     <DefaultLayout>
-      <Heading>{user.name}</Heading>
+      <H1>{user.name}</H1>
+    </DefaultLayout>
+  );
+}
+```
+
+### Support for markdown content
+
+Write your content in markdown format, and use .jsx files as layouts
+
+`_includes/layouts/post.jsx`
+
+```js
+import React from "react";
+import DefaultLayout from "../../../components/layout/Default";
+import Section from "../../../components/primitives/Section";
+import Img from "../../../components/primitives/Img";
+import Span from "../../../components/primitives/Span";
+import VerticalSpace from "../../../components/ui/VerticalSpace";
+import withHtml from "../../../components/hoc/withHtml";
+import { postSlug } from "../../../components/features/posts/utils";
+
+/**
+ * A template that renders a page for each post in the post collection (_posts/*.md)
+ */
+
+const PostBodySection = withHtml(Section);
+
+export const data = {
+  permalink: function (data) {
+    return postSlug(data.page);
+  },
+};
+
+export default function Post(data) {
+  const { title, content, cover, tags } = data;
+  return (
+    <DefaultLayout>
+      <Img src={cover} alt={title} />
+      <PostBodySection>{content}</PostBodySection>
+      {tags?.length && (
+        <>
+          <VerticalSpace />
+          {tags.map((tag, i) => (
+            <Span key={i} italic>
+              {tag}
+              {i < tags.length - 1 && ", "}
+            </Span>
+          ))}
+        </>
+      )}
     </DefaultLayout>
   );
 }
@@ -112,9 +166,8 @@ styles are extracted and inserted into the `<head>` tag
 ```js
 import React from "react";
 import styled from "styled-components";
-import PrimitiveText from "../../primitives/Text";
 
-const StyledText = styled(PrimitiveText)`
+const StyledText = styled.span`
   font-weight: ${(props) => {
     if (props.bold) {
       return 700;
@@ -124,7 +177,7 @@ const StyledText = styled(PrimitiveText)`
   }};
 `;
 
-export default function Text({ children, ...props }) {
+export default function Span({ children, ...props }) {
   return <StyledText {...props}>{children}</StyledText>;
 }
 ```
@@ -153,6 +206,10 @@ basic ui/primitives/features components included to give an idea of the approach
 
 import and use inline svgs in your react components
 
+### Babel plugins included
+
+- @babel/plugin-proposal-optional-chaining
+
 ## Notes
 
 React is not included in the build, so you can use any js approach on the client
@@ -161,7 +218,7 @@ I think that adding hydration would go against Eleventy’s philosophy
 ## TODO
 
 - reduce storybook bundle site for production build
-- test other eleventy’s features (markdown content with layout)
+- test other eleventy’s features
 - use React components in \_data files
 - use React components for primitives in markdown parser
 
