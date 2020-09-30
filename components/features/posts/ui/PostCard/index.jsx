@@ -22,8 +22,6 @@ const StyledArticle = styled(Article)`
 
 const StyledAside = styled(Aside)`
   background: ${(props) => props.theme.colors.backgroundDark};
-  display: flex;
-  justify-content: center;
 `;
 
 const StyledHeader = styled(Header)`
