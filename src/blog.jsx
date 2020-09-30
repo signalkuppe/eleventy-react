@@ -4,36 +4,44 @@ import DefaultLayout from "../components/layout/Default";
 import Head from "../components/layout/Head";
 import Pager from "../components/ui/Pager";
 import VerticalSpace from "../components/ui/VerticalSpace";
-import UserList from "../components/features/users/ui/UserList";
+import PostList from "../components/features/posts/ui/PostList";
 
 /**
  * custom data for this template (Like front matter)
  */
 
 export const data = {
-  pageTitle: "Users",
-  description: "A list of users",
+  pageTitle: "Blog",
+  description: "A list of the site posts",
   pagination: {
-    data: "users",
+    data: "collections.posts",
     size: 6,
   },
-  permalink: (data) => pagedPermalink(data.pagination, "users"),
+  permalink: (data) => pagedPermalink(data.pagination, "blog"),
 };
 
 /**
- * users come from _data/users.js data file in _data
- * users are fetched from a simulated API to test aysnc data in templates
+ * posts come from markdown files in /posts
+ * each post will render the /_includes/layouts/post.jsx component
+ * every post is added to the "posts" collection via .eleventy.js config file
  */
 
-export default function Users({ site, pageTitle, description, pagination }) {
+export default function Posts({
+  page,
+  site,
+  pageTitle,
+  description,
+  pagination,
+}) {
   const { title } = site;
   return (
     <DefaultLayout
       head={<Head title={pageTitle} slogan={title} description={description} />}
       title={pageTitle}
-      active="/users/"
+      active="/blog/"
     >
-      <UserList users={pagination.items} />
+      <PostList posts={pagination.items} />
+
       <VerticalSpace size={4} />
       <Pager pagination={pagination} />
     </DefaultLayout>

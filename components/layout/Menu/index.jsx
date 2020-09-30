@@ -1,4 +1,5 @@
 import React from "react";
+import styled, { css } from "styled-components";
 import Nav from "../../primitives/Nav";
 import Ul from "../../primitives/Ul";
 import Li from "../../primitives/Li";
@@ -6,47 +7,60 @@ import A from "../../primitives/A";
 import Icon from "../../ui/Icon";
 import HomeIcon from "../../../src/icons/home.svg";
 
+const StyledA = styled(A)`
+  text-decoration: none;
+  ${(props) =>
+    props.active &&
+    css`
+      border-bottom: 2px solid ${props.theme.colors.primary};
+      padding-bottom: 0.25rem;
+    `}
+`;
+
 const sections = [
   {
     title: "Back to the homepage",
     text: "Home",
-    href: "/",
+    url: "/",
     icon: HomeIcon,
     noText: true,
   },
   {
     title: "A test page",
     text: "Info",
-    href: "/info",
+    url: "/info/",
   },
-  /* 
   {
     title: "The blog",
     text: "Blog",
-    href: "/blog",
-  },*/
+    url: "/blog/",
+  },
   {
     title: "The users list",
     text: "Users",
-    href: "/users",
+    url: "/users/",
   },
   {
     title: "Storybook stories",
     text: "Storybook",
-    href: "/storybook",
+    url: "/storybook",
   },
 ];
 
-export default function Menu() {
+export default function Menu({ active }) {
   return (
     <Nav>
       <Ul inline reset>
         {sections.map((section, i) => (
           <Li key={i}>
-            <A title={section.title} href={section.href}>
+            <StyledA
+              title={section.title}
+              href={section.url}
+              active={active === section.url}
+            >
               <Icon icon={section.icon} />
               {!section.noText && section.text}
-            </A>
+            </StyledA>
           </Li>
         ))}
       </Ul>

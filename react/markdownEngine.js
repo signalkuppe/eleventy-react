@@ -9,6 +9,7 @@ const md = require("markdown-it")({
   html: true,
 });
 
+/*
 md.renderer.rules.strong_open = async function (
   tokens,
   idx,
@@ -22,5 +23,6 @@ md.renderer.rules.strong_open = async function (
 md.renderer.rules.strong_close = function (tokens, idx, options, env, self) {
   return `</strong>`;
 };
+*/
 
 module.exports = md;

@@ -20,17 +20,17 @@ const StyledMain = styled(Main)`
 
 const StyledH1 = styled(H1)`
   text-align: center;
-  margin-bottom: ${(props) => props.theme.spaceUnit};
+  margin-bottom: calc(${(props) => props.theme.spaceUnit} * 2);
 `;
 
-export default function Default({ head, title, children, scripts }) {
+export default function Default({ head, title, children, scripts, active }) {
   return (
     <ThemeProvider>
       <html lang="en">
         {head}
         <body>
           <StyledHeader>
-            <Menu />
+            <Menu active={active} />
           </StyledHeader>
           {title && <StyledH1>{title}</StyledH1>}
           <StyledMain>{children}</StyledMain>

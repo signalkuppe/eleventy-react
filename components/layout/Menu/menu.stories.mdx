@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Menu from "./";
+
+<Meta title="LAYOUT/Menu" component={Menu} />
+
+# Menu
+
+<Canvas>
+  <Story name="Default">
+    <Menu />
+  </Story>
+  <Story name="Active">
+    <Menu active="/blog/" />
+  </Story>
+</Canvas>

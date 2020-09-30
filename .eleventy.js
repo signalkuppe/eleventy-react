@@ -1,3 +1,4 @@
+const path = require("path");
 const config = require("./react/config");
 const { getBundleFromInputPath } = require("./react/utils");
 const { pages } = require("./react/findSources");
@@ -44,9 +45,18 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", markdownEngine);
 
+  eleventyConfig.addCollection("posts", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob(path.join(config.inputDir, "_posts/*.md"))
+      .sort(function (a, b) {
+        return b.date - a.date;
+      });
+  });
+
   return {
     dir: {
       input: config.inputDir, // we watch only this jsx files, not components
     },
+    markdownTemplateEngine: "jsx", // parse markdown file with jsx template engine
   };
 };

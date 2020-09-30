@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { userFormat } from "../../utils";
 import Article from "../../../../primitives/Article";
 import Aside from "../../../../primitives/Aside";
 import Header from "../../../../primitives/Header";
-import Avatar from "../../../../ui/Avatar";
+import Img from "../../../../primitives/Img";
 import H2 from "../../../../primitives/H2";
 
 const StyledArticle = styled(Article)`
@@ -12,18 +11,17 @@ const StyledArticle = styled(Article)`
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
-  padding: calc(${(props) => props.theme.spaceUnit} * 2);
   height: 100%;
   max-width: 20rem;
   transition: all 0.3s ease-in-out;
   :hover {
-    border-color: ${(props) => props.theme.colors.primary};
+    border-bottom-color: ${(props) => props.theme.colors.primary};
+    transform: translateY(-1%);
   }
 `;
 
 const StyledAside = styled(Aside)`
   background: ${(props) => props.theme.colors.backgroundDark};
-  margin-bottom: calc(${(props) => props.theme.spaceUnit} * 2);
   display: flex;
   justify-content: center;
 `;
@@ -31,16 +29,24 @@ const StyledAside = styled(Aside)`
 const StyledHeader = styled(Header)`
   color: ${(props) => props.theme.colors.primary};
   text-align: center;
+  padding: calc(${(props) => props.theme.spaceUnit} * 2);
 `;
 
-export default function UserCard({ user, ...props }) {
+export default function PostCard({ post, ...props }) {
   return (
     <StyledArticle {...props}>
       <StyledAside>
-        <Avatar image={user.avatar} alt={userFormat(user)} loading="lazy" />
+        <Img
+          src={post.cover}
+          alt={post.title}
+          responsive
+          width="1280px"
+          height="853px"
+          loading="lazy"
+        />
       </StyledAside>
       <StyledHeader>
-        <H2 styledAs={3}>{userFormat(user)}</H2>
+        <H2 styledAs={3}>{post.title}</H2>
       </StyledHeader>
     </StyledArticle>
   );

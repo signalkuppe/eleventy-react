@@ -45,6 +45,7 @@ export default function User({ site, user }) {
         />
       }
       title={userFormat(user)}
+      active="/users/"
     >
       <Content>
         <Avatar image={user.avatar} size={12} />

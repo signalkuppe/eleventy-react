@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { userSlug } from "../../utils";
+import { postSlug } from "../../utils";
 import Ul from "../../../../primitives/Ul";
-import A from "../../../../primitives/A";
 import Li from "../../../../primitives/Li";
-import UserCard from "../UserCard";
+import A from "../../../../primitives/A";
+import PostCard from "../PostCard";
 
 const StyledList = styled(Ul)`
   display: grid;
@@ -13,16 +13,18 @@ const StyledList = styled(Ul)`
   justify-content: center;
 `;
 
-export default function UserList({ users }) {
+export default function PostList({ posts }) {
   return (
     <StyledList reset>
-      {users.map((user, i) => (
-        <Li key={user.id}>
-          <A href={userSlug(user)} wrapper>
-            <UserCard user={user} />
-          </A>
-        </Li>
-      ))}
+      {posts.map((post, i) => {
+        return (
+          <Li key={i}>
+            <A href={postSlug(post)} wrapper>
+              <PostCard post={post.data} />
+            </A>
+          </Li>
+        );
+      })}
     </StyledList>
   );
 }

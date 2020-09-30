@@ -12,24 +12,28 @@ const StyledUl = styled(Ul)`
 
 export default function Pager({ pagination, ...props }) {
   const { previousPageLink, nextPageLink } = pagination;
-  return (
-    <Nav {...props}>
-      <StyledUl reset inline>
-        {previousPageLink && (
-          <Li>
-            <A href={previousPageLink} title="Previous page">
-              &laquo; Previous page
-            </A>
-          </Li>
-        )}
-        {nextPageLink && (
-          <Li>
-            <A href={nextPageLink} title="Next page">
-              Next page &raquo;
-            </A>
-          </Li>
-        )}
-      </StyledUl>
-    </Nav>
-  );
+  if (!previousPageLink && !nextPageLink) {
+    return null;
+  } else {
+    return (
+      <Nav {...props}>
+        <StyledUl reset inline>
+          {previousPageLink && (
+            <Li>
+              <A href={previousPageLink} title="Previous page">
+                &laquo; Previous page
+              </A>
+            </Li>
+          )}
+          {nextPageLink && (
+            <Li>
+              <A href={nextPageLink} title="Next page">
+                Next page &raquo;
+              </A>
+            </Li>
+          )}
+        </StyledUl>
+      </Nav>
+    );
+  }
 }

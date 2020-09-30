@@ -16,14 +16,14 @@ export const data = {
   description: "Some test of eleventy’s features",
 };
 
-export default function Index({ site, name, pageTitle, description }) {
+export default function Info({ site, name, pageTitle, description }) {
   const { title } = site;
-
   return (
     <DefaultLayout
       head={<Head title={pageTitle} slogan={title} description={description} />}
       scripts={<Scripts scripts={["/js/info.js"]}></Scripts>}
       title={pageTitle}
+      active="/info/"
     >
       <P center>
         <Button primary id="test-button">
@@ -32,6 +32,9 @@ export default function Index({ site, name, pageTitle, description }) {
       </P>
       <P center>
         <A href="/users">This page grabs data from an api</A>
+      </P>
+      <P center>
+        <A href="/blog">This page show posts written in markdown format</A>
       </P>
       <P center>
         <A href="/storybook">Here you can look at storybook</A>

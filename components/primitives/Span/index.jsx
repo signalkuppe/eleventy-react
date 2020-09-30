@@ -1,14 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledSpan = styled.span`
-  font-weight: ${(props) => {
-    if (props.bold) {
-      return 700;
-    } else {
-      return 400;
-    }
-  }};
+  ${(props) =>
+    props.bold &&
+    css`
+      font-weight: 700;
+    `}
+  ${(props) =>
+    props.italic &&
+    css`
+      font-style: italic;
+    `}
 `;
 
 export default React.forwardRef(({ bold, children, ...props }, ref) => {
