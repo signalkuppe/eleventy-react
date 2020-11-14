@@ -111,7 +111,7 @@ export default function User({ site, user }) {
 
 ### Support for markdown content
 
-Write your content in markdown format, and use .jsx files as layouts. Print html markup with a custom withHtml hook that uses our primitives styles
+Write your content in markdown format, and use .jsx files as layouts. Print html markup with a custom withHtml HOC that uses our primitives styles
 
 `_includes/layouts/post.jsx`
 
