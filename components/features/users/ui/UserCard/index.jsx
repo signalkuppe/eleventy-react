@@ -40,7 +40,9 @@ export default function UserCard({ user, ...props }) {
         <Avatar image={user.avatar} alt={userFormat(user)} loading="lazy" />
       </StyledAside>
       <StyledHeader>
-        <H2 styledAs={3}>{userFormat(user)}</H2>
+        <H2 styledAs={3} reset>
+          {userFormat(user)}
+        </H2>
       </StyledHeader>
     </StyledArticle>
   );
