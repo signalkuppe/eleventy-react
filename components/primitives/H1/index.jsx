@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { headingFontSize } from "../utils";
 
 const StyledHeading = styled.h1`
-  font-weight: ${(props) => props.theme.type.headingFontWeight};
-  line-height: ${(props) => props.theme.type.headingLeading};
+  font-weight: 700;
+  line-height: 1.1;
   font-size: ${(props) => headingFontSize(props, 1)};
 `;
 

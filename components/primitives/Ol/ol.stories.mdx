@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import { items } from "./data";
+import Ol from "./";
+import Li from "../Li";
+
+<Meta title="Primitives/Ol" component={Ol} />
+
+# Ordered List
+
+<Canvas>
+  <Story name="Default">
+    <Ol>
+      {items.map((item, i) => (
+        <Li key={i}>{item}</Li>
+      ))}
+    </Ol>
+  </Story>
+  <Story name="Reset">
+    <Ol reset>
+      {items.map((item, i) => (
+        <Li key={i}>{item}</Li>
+      ))}
+    </Ol>
+  </Story>
+  <Story name="Inline">
+    <Ol reset inline>
+      {items.map((item, i) => (
+        <Li key={i}>{item}</Li>
+      ))}
+    </Ol>
+  </Story>
+</Canvas>

@@ -1,11 +1,17 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledImage = styled.img`
-  max-width: ${(props) => (props.responsive ? "100%" : null)};
-  height: ${(props) => (props.responsive ? "auto" : null)};
+const styles = css`
+  max-width: 100%;
+  height: auto;
 `;
 
-export default React.forwardRef(({ responsive, ...props }, ref) => {
-  return <StyledImage ref={ref} responsive={responsive} {...props} />;
+const StyledImage = styled.img`
+  ${styles}
+`;
+
+export { styles };
+
+export default React.forwardRef(({ ...props }, ref) => {
+  return <StyledImage ref={ref} {...props} />;
 });

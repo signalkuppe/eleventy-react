@@ -1,20 +1,26 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const StyledParagraph = styled.p`
+const styles = css`
   ${(props) =>
     props.center &&
     css`
       text-align: center;
     `}
-  & + & {
+  + p {
     margin-top: ${(props) => props.theme.spaceUnit};
   }
 `;
 
-export default React.forwardRef(({ center, children, ...props }, ref) => {
+const StyledParagraph = styled.p`
+  ${styles}
+`;
+
+export { styles };
+
+export default React.forwardRef(({ children, ...props }, ref) => {
   return (
-    <StyledParagraph ref={ref} center={center} {...props}>
+    <StyledParagraph ref={ref} {...props}>
       {children}
     </StyledParagraph>
   );

@@ -56,7 +56,7 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     margin: 0;
-    font-size: 112.5%;
+    font-size: ${(props) => props.theme.type.root};
   }
   body {
     font-family: ${(props) => props.theme.type.fontSans};

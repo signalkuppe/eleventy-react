@@ -1,8 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const StyledLink = styled.a`
+const styles = css`
   color: ${(props) => props.theme.colors.primary};
+  text-decoration: underline;
   ${(props) =>
     props.wrapper &&
     css`
@@ -10,6 +11,12 @@ const StyledLink = styled.a`
       color: inherit;
     `}
 `;
+
+const StyledLink = styled.a`
+  ${styles}
+`;
+
+export { styles };
 
 export default React.forwardRef(({ wrapper, children, ...props }, ref) => {
   return (
