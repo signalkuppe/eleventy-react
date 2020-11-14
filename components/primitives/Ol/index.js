@@ -5,12 +5,11 @@ const styles = css`
   ${(props) =>
     !props.reset &&
     css`
-      list-style-type: disc;
+      list-style-type: decimal;
       list-style-position: inside;
       margin: ${(props) => props.theme.spaceUnit} 0;
       padding-left: calc(${(props) => props.theme.spaceUnit} * 2);
     `}
-
   ${(props) =>
     props.inline &&
     css`
@@ -21,12 +20,12 @@ const styles = css`
     `};
 `;
 
-const StyledList = styled.ul`
+const StyledList = styled.ol`
   ${styles}
 `;
 
 export { styles };
 
-export default React.forwardRef(({ children, ...props }, ref) => {
-  return <StyledList {...props}>{children}</StyledList>;
+export default React.forwardRef(({ ...props }, ref) => {
+  return <StyledList ref={ref} {...props} />;
 });

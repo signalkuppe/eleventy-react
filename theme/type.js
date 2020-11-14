@@ -5,10 +5,10 @@ const type = {
     sans-serif`,
   fontMono: `source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace`,
   leading: 1.4,
+  root: "112.5%",
   base: "1rem",
-  scale: 1.125,
-  headingFontWeight: 700,
-  headingLeading: 1.1,
+  headingsBase: 2,
+  scale: 1.333,
 };
 
 export default type;

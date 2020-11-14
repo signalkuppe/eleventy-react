@@ -12,11 +12,13 @@ module.exports = (sourceFiles) =>
           // Configuration Object
           mode: "development",
           entry: getFullInputPath(sourceFile),
+          target: "node",
           output: {
             path: path.join(process.cwd(), config.cacheDir),
             filename: getBundleFileName(sourceFile),
             publicPath: "/",
             libraryTarget: "commonjs",
+            globalObject: "this",
           },
           module: config.webpack.module,
           resolve: config.webpack.resolve,

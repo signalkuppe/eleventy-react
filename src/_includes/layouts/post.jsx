@@ -61,7 +61,7 @@ export default function Post(data) {
         </StyledFigure>
         <PostBodySection>{content}</PostBodySection>
         <StyledFooter>
-          <Span bold>Published on </Span>
+          <Span>Published on </Span>
           {formatDate(date)}
           {tags?.length && (
             <>

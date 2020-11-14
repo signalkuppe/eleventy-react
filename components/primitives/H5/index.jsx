@@ -5,16 +5,10 @@ import { headingFontSize } from "../utils";
 const styles = css`
   font-weight: 700;
   line-height: 1.2;
-  font-size: ${(props) => headingFontSize(props, props.styledAs || 2)};
-  ${(props) =>
-    !props.reset &&
-    css`
-      margin-top: calc(${(props) => props.theme.spaceUnit} * 2);
-      margin-bottom: calc(${(props) => props.theme.spaceUnit} / 2);
-    `}
+  font-size: ${(props) => headingFontSize(props, props.styledAs || 5)};
 `;
 
-const StyledHeading = styled.h2`
+const StyledHeading = styled.h5`
   ${styles}
 `;
 

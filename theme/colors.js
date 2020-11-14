@@ -3,6 +3,7 @@ const colors = {
   backgroundDark: "#20232a",
   primary: "#61dafb",
   white: "white",
+  grey: "#999",
 };
 
 module.exports = colors; // we use it also server side for example dat

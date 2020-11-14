@@ -1,22 +1,11 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const StyledSpan = styled.span`
-  ${(props) =>
-    props.bold &&
-    css`
-      font-weight: 700;
-    `}
-  ${(props) =>
-    props.italic &&
-    css`
-      font-style: italic;
-    `}
-`;
+const StyledSpan = styled.span``;
 
-export default React.forwardRef(({ bold, children, ...props }, ref) => {
+export default React.forwardRef(({ children, ...props }, ref) => {
   return (
-    <StyledSpan ref={ref} bold={bold} {...props}>
+    <StyledSpan ref={ref} {...props}>
       {children}
     </StyledSpan>
   );

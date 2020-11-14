@@ -4,7 +4,6 @@ const { getBundleFromInputPath } = require("./react/utils");
 const { pages } = require("./react/findSources");
 const build = require("./react/build");
 const render = require("./react/render");
-const markdownEngine = require("./react/markdownEngine");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./components"); // we avoid to build components, but we wanna watch them for hot reloading
@@ -42,8 +41,6 @@ module.exports = function (eleventyConfig) {
       };
     },
   });
-
-  eleventyConfig.setLibrary("md", markdownEngine);
 
   eleventyConfig.addCollection("posts", function (collectionApi) {
     return collectionApi

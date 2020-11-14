@@ -111,7 +111,7 @@ export default function User({ site, user }) {
 
 ### Support for markdown content
 
-Write your content in markdown format, and use .jsx files as layouts
+Write your content in markdown format, and use .jsx files as layouts. Print html markup with a custom withHtml hook that uses our primitives styles
 
 `_includes/layouts/post.jsx`
 
@@ -220,7 +220,6 @@ I think that adding hydration would go against Eleventy’s philosophy
 - reduce storybook bundle site for production build
 - test other eleventy’s features
 - use React components in \_data files
-- use React components for primitives in markdown parser
 
 ## Warnings
 

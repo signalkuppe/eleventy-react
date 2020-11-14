@@ -1,12 +1,24 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { headingFontSize } from "../utils";
 
-const StyledHeading = styled.h4`
-  font-weight: ${(props) => props.theme.type.headingFontWeight};
-  line-height: ${(props) => props.theme.type.headingLeading};
-  font-size: ${(props) => headingFontSize(props, 4)};
+const styles = css`
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: ${(props) => headingFontSize(props, props.styledAs || 4)};
+  ${(props) =>
+    !props.reset &&
+    css`
+      margin-top: calc(${(props) => props.theme.spaceUnit} * 2);
+      margin-bottom: calc(${(props) => props.theme.spaceUnit} / 2);
+    `}
 `;
+
+const StyledHeading = styled.h4`
+  ${styles}
+`;
+
+export { styles };
 
 export default React.forwardRef(({ children, ...props }, ref) => {
   return <StyledHeading {...props}>{children}</StyledHeading>;

@@ -1,5 +1,12 @@
 export const headingFontSize = (props, level) => {
-  return `calc(${props.theme.type.base} * ${
-    (7 - level) * props.theme.type.scale * 0.35
-  })`;
+  const ratio = () => {
+    let size = props.theme.type.headingsBase;
+    let sizes = [size];
+    Array.from(Array(6).keys()).forEach((i) => {
+      sizes[i + 1] = size / props.theme.type.scale;
+      size = sizes[i + 1];
+    });
+    return sizes;
+  };
+  return `${ratio()[level - 1]}rem`;
 };
