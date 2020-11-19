@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Script from "../../../../ui/Script";
+import client from "./client.mjs";
 import { userFormat } from "../../utils";
 import Article from "../../../../primitives/Article";
 import Aside from "../../../../primitives/Aside";
@@ -35,15 +37,18 @@ const StyledHeader = styled(Header)`
 
 export default function UserCard({ user, ...props }) {
   return (
-    <StyledArticle {...props}>
-      <StyledAside>
-        <Avatar image={user.avatar} alt={userFormat(user)} loading="lazy" />
-      </StyledAside>
-      <StyledHeader>
-        <H2 styledAs={3} reset>
-          {userFormat(user)}
-        </H2>
-      </StyledHeader>
-    </StyledArticle>
+    <>
+      <StyledArticle {...props} className="UserCard" id={`user-${user.id}`}>
+        <StyledAside>
+          <Avatar image={user.avatar} alt={userFormat(user)} loading="lazy" />
+        </StyledAside>
+        <StyledHeader>
+          <H2 styledAs={3} noMargins>
+            {userFormat(user)}
+          </H2>
+        </StyledHeader>
+      </StyledArticle>
+      <Script>{client}</Script>
+    </>
   );
 }

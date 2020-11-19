@@ -44,7 +44,7 @@ export default function PostCard({ post, ...props }) {
         />
       </StyledAside>
       <StyledHeader>
-        <H2 styledAs={3} reset>
+        <H2 styledAs={3} noMargins>
           {post.title}
         </H2>
       </StyledHeader>

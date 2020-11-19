@@ -6,6 +6,12 @@ const styles = css`
   font-weight: 700;
   line-height: 1.2;
   font-size: ${(props) => headingFontSize(props, props.styledAs || 5)};
+  ${(props) =>
+    !props.noMargins &&
+    css`
+      margin-top: calc(${(props) => props.theme.spaceUnit} * 2);
+      margin-bottom: calc(${(props) => props.theme.spaceUnit} / 2);
+    `}
 `;
 
 const StyledHeading = styled.h5`

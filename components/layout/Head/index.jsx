@@ -30,6 +30,7 @@ export default function Head({ title, slogan, description, ...props }) {
       <meta name="msapplication-TileColor" content="#2b5797" />
       <meta name="theme-color" content="#ffffff" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta name="generator" content="eleventy-react" />
       {description && <meta name="description" content={description} />}
     </head>
   );

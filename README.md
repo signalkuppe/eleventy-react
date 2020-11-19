@@ -210,10 +210,92 @@ import and use inline svgs in your react components
 
 - @babel/plugin-proposal-optional-chaining
 
-## Notes
+## Dealing with client-side js
 
-React is not included in the build, so you can use any js approach on the client
-I think that adding hydration would go against Eleventy’s philosophy
+**React is not included in the build,** so you can use any js approach on the client.
+I think that adding hydration would go against Eleventy’s philosophy.
+
+Developers like to write code in a **component-fashioned way** so there’s a helper to deal with client-side js code.
+
+Say you have **a component that need some vanilla client-side js logic** and maybe an external library, like an [accordion](https://github.com/signalkuppe/fisarmonica).
+Just add the `<Script>` component in you code like this
+
+```js
+import React, { Fragment } from "react";
+import Dl from "../../primitives/Dl";
+import Dt from "../../primitives/Dt";
+import Dd from "../../primitives/Dd";
+import Button from "../../primitives/Button";
+import Script, { outputLibDir } from "../Script";
+import client from "./client.mjs";
+
+export default function Accordion({ items }) {
+  return (
+    <>
+      <Dl reset id="accordion">
+        {items.map((item, i) => (
+          <Fragment key={i}>
+            <Dt>
+              <Button>{item.title}</Button>
+            </Dt>
+            <Dd>{item.description}</Dd>
+          </Fragment>
+        ))}
+      </Dl>
+      <Script
+        libs={[
+          {
+            js: `/${outputLibDir}/fisarmonica/src/fisarmonica.js`,
+            css: `/${outputLibDir}/fisarmonica/src/fisarmonica.css`,
+          },
+        ]}
+      >
+        {client}
+      </Script>
+    </>
+  );
+}
+```
+
+With the libs param **you can add as many libraries as you want,** adding the required js and css files.
+**Write you logic in a .mjs file** in the component folder, import it and place it as a children of the `<Script>` component.
+
+Styles and scripts will be extracted at build time and placed in the right place in the DOM.
+Be sure to pass the libs installed via npm to the output folder in the `.eleventy.js` config file.
+
+```js
+// add this client side js lib to our otuput dir
+
+eleventyConfig.addPassthroughCopy({
+  "node_modules/fisarmonica": `${config.outputLibDir}/fisarmonica`,
+});
+```
+
+### Theme variables are exposed to the client
+
+Sometimes you have to use your theme variables in client-side logic.
+A global `THEME` variable containing our styled-components settings is exposed to the client.
+
+```js
+const THEME = {
+  colors: {
+    background: "#282c34",
+    backgroundDark: "#20232a",
+    primary: "#61dafb",
+    white: "white",
+    grey: "#32363e",
+  },
+  type: {
+    fontSans: "-apple-system, “Segoe UI”, “Roboto”",
+    fontMono: "source-code-pro, Menlo, Monaco, Consolas, monospace",
+    leading: 1.4,
+    root: "112.5%",
+    base: "1rem",
+    headingsBase: 2,
+    scale: 1.333,
+  },
+};
+```
 
 ## TODO
 

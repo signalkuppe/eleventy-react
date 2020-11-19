@@ -50,9 +50,15 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  // add this client side js lib to our otuput dir
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/fisarmonica": `${config.outputLibDir}/fisarmonica`,
+  });
+
   return {
     dir: {
       input: config.inputDir, // we watch only this jsx files, not components
+      outout: config.outputDir,
     },
     markdownTemplateEngine: "jsx", // parse markdown file with jsx template engine
   };

@@ -1,6 +1,8 @@
 module.exports = {
   cacheDir: ".cache",
   inputDir: "src",
+  outputDir: "_site",
+  outputLibDir: "libs",
   componentsDir: "components",
   webpack: {
     resolve: {
@@ -23,6 +25,10 @@ module.exports = {
         {
           test: /\.svg$/,
           use: ["@svgr/webpack"],
+        },
+        {
+          test: /\.mjs$/i,
+          use: "raw-loader",
         },
       ],
     },

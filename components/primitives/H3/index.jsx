@@ -7,7 +7,7 @@ const styles = css`
   line-height: 1.2;
   font-size: ${(props) => headingFontSize(props, props.styledAs || 3)};
   ${(props) =>
-    !props.reset &&
+    !props.noMargins &&
     css`
       margin-top: calc(${(props) => props.theme.spaceUnit} * 2);
       margin-bottom: calc(${(props) => props.theme.spaceUnit} / 2);

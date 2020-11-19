@@ -11,4 +11,4 @@ const type = {
   scale: 1.333,
 };
 
-export default type;
+module.exports = type; // we use it also server side for example data and during render

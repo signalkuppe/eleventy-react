@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import client from "./client.mjs";
 import { userSlug } from "../../utils";
+import Script from "../../../../ui/Script";
 import Ul from "../../../../primitives/Ul";
 import A from "../../../../primitives/A";
 import Li from "../../../../primitives/Li";
@@ -15,14 +17,17 @@ const StyledList = styled(Ul)`
 
 export default function UserList({ users }) {
   return (
-    <StyledList reset>
-      {users.map((user, i) => (
-        <Li key={user.id}>
-          <A href={userSlug(user)} wrapper>
-            <UserCard user={user} />
-          </A>
-        </Li>
-      ))}
-    </StyledList>
+    <>
+      <StyledList reset>
+        {users.map((user, i) => (
+          <Li key={user.id}>
+            <A href={userSlug(user)} wrapper>
+              <UserCard user={user} />
+            </A>
+          </Li>
+        ))}
+      </StyledList>
+      <Script>{client}</Script>
+    </>
   );
 }
