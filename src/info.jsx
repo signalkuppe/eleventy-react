@@ -1,7 +1,9 @@
 import React from "react";
+import styled from "styled-components";
 import client from "../src/js/info.mjs";
 import DefaultLayout from "../components/layout/Default";
 import Head from "../components/layout/Head";
+import Div from "../components/primitives/Div";
 import Strong from "../components/primitives/Strong";
 import A from "../components/primitives/A";
 import Button from "../components/primitives/Button";
@@ -33,6 +35,11 @@ export const data = {
     },
   ],
 };
+
+const AccordionContainer = styled(Div)`
+  max-width: 30rem;
+  margin: 0 auto;
+`;
 
 export default function Info({
   site,
@@ -78,7 +85,10 @@ export default function Info({
         installed in node_modules
       </P>
       <VerticalSpace size={2} />
-      <Accordion items={accordion} />
+      <AccordionContainer>
+        <Accordion items={accordion} />
+      </AccordionContainer>
+
       <VerticalSpace size={4} />
       <Script>{client}</Script>
     </DefaultLayout>
