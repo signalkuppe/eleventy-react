@@ -1,0 +1,14 @@
+import { useEffect } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Accordion from './';
+import { accordionData } from './data';
+
+<Meta title="UI/Accordion" component={Accordion} />
+
+# Accordion
+
+<Canvas>
+    <Story name="Default">
+        <Accordion items={accordionData} />
+    </Story>
+</Canvas>
