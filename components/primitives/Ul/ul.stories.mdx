@@ -1,32 +1,32 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import { items } from "./data";
-import Ul from "./";
-import Li from "../Li";
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { items } from './data';
+import Ul from './';
+import Li from '../Li';
 
 <Meta title="Primitives/Ul" component={Ul} />
 
 # List
 
 <Canvas>
-  <Story name="Default">
-    <Ul>
-      {items.map((item, i) => (
-        <Li key={i}>{item}</Li>
-      ))}
-    </Ul>
-  </Story>
-  <Story name="Reset">
-    <Ul reset>
-      {items.map((item, i) => (
-        <Li key={i}>{item}</Li>
-      ))}
-    </Ul>
-  </Story>
-  <Story name="Inline">
-    <Ul reset inline>
-      {items.map((item, i) => (
-        <Li key={i}>{item}</Li>
-      ))}
-    </Ul>
-  </Story>
+    <Story name="Default">
+        <Ul>
+            {items.map((item, i) => (
+                <Li key={i}>{item}</Li>
+            ))}
+        </Ul>
+    </Story>
+    <Story name="Reset">
+        <Ul reset>
+            {items.map((item, i) => (
+                <Li key={i}>{item}</Li>
+            ))}
+        </Ul>
+    </Story>
+    <Story name="Inline">
+        <Ul reset inline>
+            {items.map((item, i) => (
+                <Li key={i}>{item}</Li>
+            ))}
+        </Ul>
+    </Story>
 </Canvas>

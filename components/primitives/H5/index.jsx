@@ -1,25 +1,25 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { headingFontSize } from "../utils";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { headingFontSize } from '../utils';
 
 const styles = css`
-  font-weight: 700;
-  line-height: 1.2;
-  font-size: ${(props) => headingFontSize(props, props.styledAs || 5)};
-  ${(props) =>
-    !props.noMargins &&
-    css`
-      margin-top: calc(${(props) => props.theme.spaceUnit} * 2);
-      margin-bottom: calc(${(props) => props.theme.spaceUnit} / 2);
-    `}
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: ${(props) => headingFontSize(props, props.styledAs || 5)};
+    ${(props) =>
+        !props.noMargins &&
+        css`
+            margin-top: calc(${(props) => props.theme.spaceUnit} * 2);
+            margin-bottom: calc(${(props) => props.theme.spaceUnit} / 2);
+        `}
 `;
 
 const StyledHeading = styled.h5`
-  ${styles}
+    ${styles}
 `;
 
 export { styles };
 
 export default React.forwardRef(({ children, ...props }, ref) => {
-  return <StyledHeading {...props}>{children}</StyledHeading>;
+    return <StyledHeading {...props}>{children}</StyledHeading>;
 });

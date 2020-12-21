@@ -1,23 +1,23 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import H2 from "./";
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import H2 from './';
 
 <Meta title="Primitives/H2" component={H2} />
 
 # H2
 
 <Canvas>
-  <Story name="Default">
-    <H2>Level 2 heading</H2>
-  </Story>
-  <Story name="Styled as 3">
-    <H2 styledAs={3}>Level 2 heading with h3 size</H2>
-  </Story>
-  <Story name="With siblings">
-    <H2>Level 2 heading</H2>
-    <p>This is a sibling text</p>
-  </Story>
-  <Story name="No margins">
-    <H2 noMargins>Level 2 heading</H2>
-    <p>This is a sibling text</p>
-  </Story>
+    <Story name="Default">
+        <H2>Level 2 heading</H2>
+    </Story>
+    <Story name="Styled as 3">
+        <H2 styledAs={3}>Level 2 heading with h3 size</H2>
+    </Story>
+    <Story name="With siblings">
+        <H2>Level 2 heading</H2>
+        <p>This is a sibling text</p>
+    </Story>
+    <Story name="No margins">
+        <H2 noMargins>Level 2 heading</H2>
+        <p>This is a sibling text</p>
+    </Story>
 </Canvas>

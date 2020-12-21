@@ -1,20 +1,20 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 const styles = css`
-  font-style: italic;
+    font-style: italic;
 `;
 
 const StyledEm = styled.em`
-  ${styles}
+    ${styles}
 `;
 
 export { styles };
 
 export default React.forwardRef(({ children, ...props }, ref) => {
-  return (
-    <StyledEm ref={ref} {...props}>
-      {children}
-    </StyledEm>
-  );
+    return (
+        <StyledEm ref={ref} {...props}>
+            {children}
+        </StyledEm>
+    );
 });

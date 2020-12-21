@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import Icon from "./";
-import Span from "../../primitives/Span";
-import HomeIcon from "../../../src/icons/home.svg";
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Icon from './';
+import Span from '../../primitives/Span';
+import HomeIcon from '../../../src/icons/home.svg';
 
 <Meta title="UI/Icon" component={Icon} />
 
@@ -10,15 +10,15 @@ import HomeIcon from "../../../src/icons/home.svg";
 Svg icons
 
 <Canvas>
-  <Story name="Default">
-    <Icon icon={HomeIcon} />
-  </Story>
-  <Story name="Left">
-    <Icon icon={HomeIcon} left />
-    <Span>text on the right</Span>
-  </Story>
-  <Story name="Right">
-    <Span>text on the left</Span>
-    <Icon icon={HomeIcon} right />
-  </Story>
+    <Story name="Default">
+        <Icon icon={HomeIcon} />
+    </Story>
+    <Story name="Left">
+        <Icon icon={HomeIcon} left />
+        <Span>text on the right</Span>
+    </Story>
+    <Story name="Right">
+        <Span>text on the left</Span>
+        <Icon icon={HomeIcon} right />
+    </Story>
 </Canvas>

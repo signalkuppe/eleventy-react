@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
 export default React.forwardRef(({ ...props }, ref) => {
-  return <footer ref={ref} {...props} />;
+    return <footer ref={ref} {...props} />;
 });

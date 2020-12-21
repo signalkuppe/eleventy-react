@@ -1,15 +1,15 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import DefaultLayout from "./";
-import LoremIpsum from "../../ui/LoremIpsum";
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import DefaultLayout from './';
+import LoremIpsum from '../../ui/LoremIpsum';
 
 <Meta title="LAYOUT/Default" component={DefaultLayout} />
 
 # Default layout
 
 <Canvas>
-  <Story name="Default">
-    <DefaultLayout head={<title>Head Page title</title>} title="Page title">
-      <LoremIpsum times={2} center />
-    </DefaultLayout>
-  </Story>
+    <Story name="Default">
+        <DefaultLayout head={<title>Head Page title</title>} title="Page title">
+            <LoremIpsum times={2} center />
+        </DefaultLayout>
+    </Story>
 </Canvas>

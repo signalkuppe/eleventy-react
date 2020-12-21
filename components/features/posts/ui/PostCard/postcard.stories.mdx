@@ -1,15 +1,15 @@
-import { Fragment } from "react";
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import users from "../../../../../example-data/users.js";
-import PostCard from "./";
-import { post } from "./data";
+import { Fragment } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import users from '../../../../../example-data/users.js';
+import PostCard from './';
+import { post } from './data';
 
 <Meta title="Posts/Post card" component={PostCard} />
 
 # Post card
 
 <Canvas>
-  <Story name="Default">
-    <PostCard post={post} />
-  </Story>
+    <Story name="Default">
+        <PostCard post={post} />
+    </Story>
 </Canvas>

@@ -1,33 +1,33 @@
-import { Fragment } from "react";
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import { items } from "./data";
-import Dl from "./";
-import Dt from "../Dt";
-import Dd from "../Dd";
+import { Fragment } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { items } from './data';
+import Dl from './';
+import Dt from '../Dt';
+import Dd from '../Dd';
 
 <Meta title="Primitives/Dl" component={Dl} />
 
 # Definition List
 
 <Canvas>
-  <Story name="Default">
-    <Dl>
-      {items.map((item, i) => (
-        <Fragment key={i}>
-          <Dt>{item.title}</Dt>
-          <Dd>{item.description}</Dd>
-        </Fragment>
-      ))}
-    </Dl>
-  </Story>
-  <Story name="Reset">
-    <Dl reset>
-      {items.map((item, i) => (
-        <Fragment key={i}>
-          <Dt>{item.title}</Dt>
-          <Dd>{item.description}</Dd>
-        </Fragment>
-      ))}
-    </Dl>
-  </Story>
+    <Story name="Default">
+        <Dl>
+            {items.map((item, i) => (
+                <Fragment key={i}>
+                    <Dt>{item.title}</Dt>
+                    <Dd>{item.description}</Dd>
+                </Fragment>
+            ))}
+        </Dl>
+    </Story>
+    <Story name="Reset">
+        <Dl reset>
+            {items.map((item, i) => (
+                <Fragment key={i}>
+                    <Dt>{item.title}</Dt>
+                    <Dd>{item.description}</Dd>
+                </Fragment>
+            ))}
+        </Dl>
+    </Story>
 </Canvas>

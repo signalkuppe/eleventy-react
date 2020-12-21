@@ -1,23 +1,23 @@
-import React from "react";
-import { pagedPermalink } from "../components/features/system/utils";
-import DefaultLayout from "../components/layout/Default";
-import Head from "../components/layout/Head";
-import Pager from "../components/ui/Pager";
-import VerticalSpace from "../components/ui/VerticalSpace";
-import UserList from "../components/features/users/ui/UserList";
+import React from 'react';
+import { pagedPermalink } from '../components/features/system/utils';
+import DefaultLayout from '../components/layout/Default';
+import Head from '../components/layout/Head';
+import Pager from '../components/ui/Pager';
+import VerticalSpace from '../components/ui/VerticalSpace';
+import UserList from '../components/features/users/ui/UserList';
 
 /**
  * custom data for this template (Like front matter)
  */
 
 export const data = {
-  pageTitle: "Users",
-  description: "A list of users",
-  pagination: {
-    data: "users",
-    size: 6,
-  },
-  permalink: (data) => pagedPermalink(data.pagination, "users"),
+    pageTitle: 'Users',
+    description: 'A list of users',
+    pagination: {
+        data: 'users',
+        size: 6,
+    },
+    permalink: (data) => pagedPermalink(data.pagination, 'users'),
 };
 
 /**
@@ -26,16 +26,22 @@ export const data = {
  */
 
 export default function Users({ site, pageTitle, description, pagination }) {
-  const { title } = site;
-  return (
-    <DefaultLayout
-      head={<Head title={pageTitle} slogan={title} description={description} />}
-      title={pageTitle}
-      active="/users/"
-    >
-      <UserList users={pagination.items} />
-      <VerticalSpace size={4} />
-      <Pager pagination={pagination} />
-    </DefaultLayout>
-  );
+    const { title } = site;
+    return (
+        <DefaultLayout
+            head={
+                <Head
+                    title={pageTitle}
+                    slogan={title}
+                    description={description}
+                />
+            }
+            title={pageTitle}
+            active="/users/"
+        >
+            <UserList users={pagination.items} />
+            <VerticalSpace size={4} />
+            <Pager pagination={pagination} />
+        </DefaultLayout>
+    );
 }

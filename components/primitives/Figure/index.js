@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
 export default React.forwardRef(({ ...props }, ref) => {
-  return <figure ref={ref} {...props} />;
+    return <figure ref={ref} {...props} />;
 });

@@ -1,17 +1,17 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import A from "./";
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import A from './';
 
 <Meta title="Primitives/A" component={A} />
 
 # Link
 
 <Canvas>
-  <Story name="Default">
-    <A href="https://www.google.it">This is a link</A>
-  </Story>
-  <Story name="Wrapper">
-    <A href="#" wrapper>
-      <div style={{ color: "yellow" }}>Wrapper link</div>
-    </A>
-  </Story>
+    <Story name="Default">
+        <A href="https://www.google.it">This is a link</A>
+    </Story>
+    <Story name="Wrapper">
+        <A href="#" wrapper>
+            <div style={{ color: 'yellow' }}>Wrapper link</div>
+        </A>
+    </Story>
 </Canvas>

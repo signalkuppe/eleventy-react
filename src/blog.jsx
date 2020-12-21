@@ -1,23 +1,23 @@
-import React from "react";
-import { pagedPermalink } from "../components/features/system/utils";
-import DefaultLayout from "../components/layout/Default";
-import Head from "../components/layout/Head";
-import Pager from "../components/ui/Pager";
-import VerticalSpace from "../components/ui/VerticalSpace";
-import PostList from "../components/features/posts/ui/PostList";
+import React from 'react';
+import { pagedPermalink } from '../components/features/system/utils';
+import DefaultLayout from '../components/layout/Default';
+import Head from '../components/layout/Head';
+import Pager from '../components/ui/Pager';
+import VerticalSpace from '../components/ui/VerticalSpace';
+import PostList from '../components/features/posts/ui/PostList';
 
 /**
  * custom data for this template (Like front matter)
  */
 
 export const data = {
-  pageTitle: "Blog",
-  description: "A list of the site posts",
-  pagination: {
-    data: "collections.posts",
-    size: 6,
-  },
-  permalink: (data) => pagedPermalink(data.pagination, "blog"),
+    pageTitle: 'Blog',
+    description: 'A list of the site posts',
+    pagination: {
+        data: 'collections.posts',
+        size: 6,
+    },
+    permalink: (data) => pagedPermalink(data.pagination, 'blog'),
 };
 
 /**
@@ -27,23 +27,29 @@ export const data = {
  */
 
 export default function Posts({
-  page,
-  site,
-  pageTitle,
-  description,
-  pagination,
+    page,
+    site,
+    pageTitle,
+    description,
+    pagination,
 }) {
-  const { title } = site;
-  return (
-    <DefaultLayout
-      head={<Head title={pageTitle} slogan={title} description={description} />}
-      title={pageTitle}
-      active="/blog/"
-    >
-      <PostList posts={pagination.items} />
+    const { title } = site;
+    return (
+        <DefaultLayout
+            head={
+                <Head
+                    title={pageTitle}
+                    slogan={title}
+                    description={description}
+                />
+            }
+            title={pageTitle}
+            active="/blog/"
+        >
+            <PostList posts={pagination.items} />
 
-      <VerticalSpace size={4} />
-      <Pager pagination={pagination} />
-    </DefaultLayout>
-  );
+            <VerticalSpace size={4} />
+            <Pager pagination={pagination} />
+        </DefaultLayout>
+    );
 }

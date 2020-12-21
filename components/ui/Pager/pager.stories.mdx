@@ -1,19 +1,19 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import Pager from "./";
-import { defaultPagination, firstPage, lastPage } from "./data";
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Pager from './';
+import { defaultPagination, firstPage, lastPage } from './data';
 
 <Meta title="UI/Pager" component={Pager} />
 
 # Pager
 
 <Canvas>
-  <Story name="Default">
-    <Pager pagination={defaultPagination} />
-  </Story>
-  <Story name="First">
-    <Pager pagination={firstPage} />
-  </Story>
-  <Story name="Last">
-    <Pager pagination={lastPage} />
-  </Story>
+    <Story name="Default">
+        <Pager pagination={defaultPagination} />
+    </Story>
+    <Story name="First">
+        <Pager pagination={firstPage} />
+    </Story>
+    <Story name="Last">
+        <Pager pagination={lastPage} />
+    </Story>
 </Canvas>

@@ -1,14 +1,14 @@
-import { Fragment } from "react";
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-import users from "../../../../../example-data/users.js";
-import UserCard from "./";
+import { Fragment, useEffect } from 'react';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import users from '../../../../../example-data/users.js';
+import UserCard from './';
 
 <Meta title="Users/User card" component={UserCard} />
 
 # User card
 
 <Canvas>
-  <Story name="Default">
-    <UserCard user={users[0]} />
-  </Story>
+    <Story name="Default">
+        <UserCard user={users[0]} />
+    </Story>
 </Canvas>

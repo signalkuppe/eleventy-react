@@ -51,61 +51,61 @@ npm run build
 just add a `data export` to your jsx file
 
 ```js
-import React from "react";
-import DefaultLayout from "../components/layout/Default";
-import P from "../components/primitives/P";
-import Span from "../components/primitives/Span";
-import H1 from "../components/primitives/H1";
+import React from 'react';
+import DefaultLayout from '../components/layout/Default';
+import P from '../components/primitives/P';
+import Span from '../components/primitives/Span';
+import H1 from '../components/primitives/H1';
 
 // custom template data
 export const data = {
-  name: "John Doe",
+    name: 'John Doe',
 };
 
 export default function Index({ site, name }) {
-  // site comes from site.js data file in _data
-  const { title } = site;
+    // site comes from site.js data file in _data
+    const { title } = site;
 
-  return (
-    <DefaultLayout>
-      <H1>{title}</H1>
-      <P>
-        This name is from custom template data: <Span bold>{name}</Span>
-      </P>
-    </DefaultLayout>
-  );
+    return (
+        <DefaultLayout>
+            <H1>{title}</H1>
+            <P>
+                This name is from custom template data: <Span bold>{name}</Span>
+            </P>
+        </DefaultLayout>
+    );
 }
 ```
 
 ### Support for pagination: you can generate pages from data
 
 ```js
-import React from "react";
-import { slug } from "./utils/user";
-import DefaultLayout from "../components/layout/Default";
-import H1 from "../components/primitives/H1";
+import React from 'react';
+import { slug } from './utils/user';
+import DefaultLayout from '../components/layout/Default';
+import H1 from '../components/primitives/H1';
 
 /**
  * A template that renders a page for each user in the users collection
  */
 
 export const data = {
-  pagination: {
-    data: "users",
-    size: 1,
-    alias: "user",
-  },
-  permalink: function (data) {
-    return slug(data.user);
-  },
+    pagination: {
+        data: 'users',
+        size: 1,
+        alias: 'user',
+    },
+    permalink: function (data) {
+        return slug(data.user);
+    },
 };
 
 export default function User({ site, user }) {
-  return (
-    <DefaultLayout>
-      <H1>{user.name}</H1>
-    </DefaultLayout>
-  );
+    return (
+        <DefaultLayout>
+            <H1>{user.name}</H1>
+        </DefaultLayout>
+    );
 }
 ```
 
@@ -116,14 +116,14 @@ Write your content in markdown format, and use .jsx files as layouts. Print html
 `_includes/layouts/post.jsx`
 
 ```js
-import React from "react";
-import DefaultLayout from "../../../components/layout/Default";
-import Section from "../../../components/primitives/Section";
-import Img from "../../../components/primitives/Img";
-import Span from "../../../components/primitives/Span";
-import VerticalSpace from "../../../components/ui/VerticalSpace";
-import withHtml from "../../../components/hoc/withHtml";
-import { postSlug } from "../../../components/features/posts/utils";
+import React from 'react';
+import DefaultLayout from '../../../components/layout/Default';
+import Section from '../../../components/primitives/Section';
+import Img from '../../../components/primitives/Img';
+import Span from '../../../components/primitives/Span';
+import VerticalSpace from '../../../components/ui/VerticalSpace';
+import withHtml from '../../../components/hoc/withHtml';
+import { postSlug } from '../../../components/features/posts/utils';
 
 /**
  * A template that renders a page for each post in the post collection (_posts/*.md)
@@ -132,30 +132,30 @@ import { postSlug } from "../../../components/features/posts/utils";
 const PostBodySection = withHtml(Section);
 
 export const data = {
-  permalink: function (data) {
-    return postSlug(data.page);
-  },
+    permalink: function (data) {
+        return postSlug(data.page);
+    },
 };
 
 export default function Post(data) {
-  const { title, content, cover, tags } = data;
-  return (
-    <DefaultLayout>
-      <Img src={cover} alt={title} />
-      <PostBodySection>{content}</PostBodySection>
-      {tags?.length && (
-        <>
-          <VerticalSpace />
-          {tags.map((tag, i) => (
-            <Span key={i} italic>
-              {tag}
-              {i < tags.length - 1 && ", "}
-            </Span>
-          ))}
-        </>
-      )}
-    </DefaultLayout>
-  );
+    const { title, content, cover, tags } = data;
+    return (
+        <DefaultLayout>
+            <Img src={cover} alt={title} />
+            <PostBodySection>{content}</PostBodySection>
+            {tags?.length && (
+                <>
+                    <VerticalSpace />
+                    {tags.map((tag, i) => (
+                        <Span key={i} italic>
+                            {tag}
+                            {i < tags.length - 1 && ', '}
+                        </Span>
+                    ))}
+                </>
+            )}
+        </DefaultLayout>
+    );
 }
 ```
 
@@ -164,21 +164,21 @@ export default function Post(data) {
 styles are extracted and inserted into the `<head>` tag
 
 ```js
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledText = styled.span`
-  font-weight: ${(props) => {
-    if (props.bold) {
-      return 700;
-    } else {
-      return 400;
-    }
-  }};
+    font-weight: ${(props) => {
+        if (props.bold) {
+            return 700;
+        } else {
+            return 400;
+        }
+    }};
 `;
 
 export default function Span({ children, ...props }) {
-  return <StyledText {...props}>{children}</StyledText>;
+    return <StyledText {...props}>{children}</StyledText>;
 }
 ```
 
@@ -208,7 +208,7 @@ import and use inline svgs in your react components
 
 ### Babel plugins included
 
-- @babel/plugin-proposal-optional-chaining
+-   @babel/plugin-proposal-optional-chaining
 
 ## Dealing with client-side js
 
@@ -221,53 +221,55 @@ Say you have **a component that need some vanilla client-side js logic** and may
 Just add the `<Script>` component in you code like this
 
 ```js
-import React, { Fragment } from "react";
-import Dl from "../../primitives/Dl";
-import Dt from "../../primitives/Dt";
-import Dd from "../../primitives/Dd";
-import Button from "../../primitives/Button";
-import Script, { outputLibDir } from "../Script";
-import client from "./client.mjs";
+import React, { Fragment } from 'react';
+import Dl from '../../primitives/Dl';
+import Dt from '../../primitives/Dt';
+import Dd from '../../primitives/Dd';
+import Button from '../../primitives/Button';
+import Script, { outputLibDir } from '../Script';
+import client from './index.client.js';
 
 export default function Accordion({ items }) {
-  return (
-    <>
-      <Dl reset id="accordion">
-        {items.map((item, i) => (
-          <Fragment key={i}>
-            <Dt>
-              <Button>{item.title}</Button>
-            </Dt>
-            <Dd>{item.description}</Dd>
-          </Fragment>
-        ))}
-      </Dl>
-      <Script
-        libs={[
-          {
-            js: `/${outputLibDir}/fisarmonica/src/fisarmonica.js`,
-            css: `/${outputLibDir}/fisarmonica/src/fisarmonica.css`,
-          },
-        ]}
-      >
-        {client}
-      </Script>
-    </>
-  );
+    return (
+        <>
+            <Dl reset id="accordion">
+                {items.map((item, i) => (
+                    <Fragment key={i}>
+                        <Dt>
+                            <Button>{item.title}</Button>
+                        </Dt>
+                        <Dd>{item.description}</Dd>
+                    </Fragment>
+                ))}
+            </Dl>
+            <Script
+                libs={[
+                    {
+                        js: `/${outputLibDir}/fisarmonica/src/fisarmonica.js`,
+                        css: `/${outputLibDir}/fisarmonica/src/fisarmonica.css`,
+                    },
+                ]}
+            >
+                {client}
+            </Script>
+        </>
+    );
 }
 ```
 
 With the libs param **you can add as many libraries as you want,** adding the required js and css files.
-**Write you logic in a .mjs file** in the component folder, import it and place it as a children of the `<Script>` component.
+**Write you logic in a .client.js file** in the component folder, import it and place it as a children of the `<Script>` component.
 
 Styles and scripts will be extracted at build time and placed in the right place in the DOM.
+There is also a Storybook decorator that adds the client-side logic to stories
+
 Be sure to pass the libs installed via npm to the output folder in the `.eleventy.js` config file.
 
 ```js
 // add this client side js lib to our otuput dir
 
 eleventyConfig.addPassthroughCopy({
-  "node_modules/fisarmonica": `${config.outputLibDir}/fisarmonica`,
+    'node_modules/fisarmonica': `${config.outputLibDir}/fisarmonica`,
 });
 ```
 
@@ -278,30 +280,30 @@ A global `THEME` variable containing our styled-components settings is exposed t
 
 ```js
 const THEME = {
-  colors: {
-    background: "#282c34",
-    backgroundDark: "#20232a",
-    primary: "#61dafb",
-    white: "white",
-    grey: "#32363e",
-  },
-  type: {
-    fontSans: "-apple-system, “Segoe UI”, “Roboto”",
-    fontMono: "source-code-pro, Menlo, Monaco, Consolas, monospace",
-    leading: 1.4,
-    root: "112.5%",
-    base: "1rem",
-    headingsBase: 2,
-    scale: 1.333,
-  },
+    colors: {
+        background: '#282c34',
+        backgroundDark: '#20232a',
+        primary: '#61dafb',
+        white: 'white',
+        grey: '#32363e',
+    },
+    type: {
+        fontSans: '-apple-system, “Segoe UI”, “Roboto”',
+        fontMono: 'source-code-pro, Menlo, Monaco, Consolas, monospace',
+        leading: 1.4,
+        root: '112.5%',
+        base: '1rem',
+        headingsBase: 2,
+        scale: 1.333,
+    },
 };
 ```
 
 ## TODO
 
-- reduce storybook bundle site for production build
-- test other eleventy’s features
-- use React components in \_data files
+-   reduce storybook bundle site for production build
+-   test other eleventy’s features
+-   use React components in \_data files
 
 ## Warnings
 
