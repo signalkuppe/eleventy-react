@@ -2,6 +2,8 @@
 
 > Use [React](https://reactjs.org/) components in [Eleventy](https://www.11ty.dev/).
 
+If you want a lighter version, without eleventy dependency, try [pequeno](https://github.com/signalkuppe/pequeno)
+
 ## Demo
 
 [https://eleventy-react.netlify.app/](https://eleventy-react.netlify.app/)
